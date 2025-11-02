@@ -11,9 +11,7 @@ body {
     align-items: center;
 }
 
-.container {
-    text-align: left;
-}
+.container { text-align: left; }
 
 h1 {
     font-size: 4rem;
@@ -22,9 +20,7 @@ h1 {
     margin-bottom: 1.5rem;
 }
 
-h1 span {
-    color: #b084f9; /* mor tonu */
-}
+h1 span { color: #b084f9; }
 
 .iso {
     font-size: 1rem;
