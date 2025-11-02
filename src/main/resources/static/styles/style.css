@@ -1,49 +1,234 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
-    height: 100vh;
     background-color: #000;
     color: white;
     font-family: 'Inter', sans-serif;
+    overflow: hidden; /* kaydırma kapalı */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100vh;
 }
 
-.container { text-align: left; }
+/* ============================= */
+/* --- GENEL YAPI --- */
+/* ============================= */
+
+.container {
+    text-align: left;
+    width: 88vw;
+    max-width: 1180px;
+    margin-top: 25px; /* Yukarı taşındı */
+    margin-left: 60px;
+}
 
 h1 {
-    font-size: 4rem;
+    font-size: 2.6rem;
     line-height: 1.1;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.8rem;
 }
 
-h1 span { color: #b084f9; }
+h1 span {
+    color: #b084f9;
+}
 
 .iso {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: #dcdcdc;
-    margin-top: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     letter-spacing: 0.5px;
 }
 
-.start-btn {
-    background: linear-gradient(90deg, #000000 0%, #7a3ef8 100%);
-    color: white;
-    border: 1px solid #7a3ef8;
-    border-radius: 50px;
-    padding: 15px 40px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
+/* ============================= */
+/* --- İÇERİK KUTULARI --- */
+/* ============================= */
+
+.content-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 20px 28px;
+    flex-wrap: nowrap;
+    gap: 24px;
+    height: 65vh; /* daha kısa hale getirildi */
 }
 
-.start-btn:hover {
-    background: linear-gradient(90deg, #7a3ef8 0%, #b084f9 100%);
-    transform: scale(1.05);
+.left {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    flex: 1;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+}
+
+.card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.card .icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #a56cff, #60c0ff);
+    border-radius: 50%;
+    margin: 0 auto 10px;
+}
+
+.card p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.right {
+    flex: 1;
+    text-align: left;
+    padding-left: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* alt hizalama için değiştirildi */
+}
+
+.right h3 {
+    color: #dcdcdc;
+    font-weight: 600;
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+
+.right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* aralar eşit dağıtılır */
+    height: 100%; /* sol kısımla aynı yükseklik */
+}
+
+.right ul li {
+    background: linear-gradient(90deg, #7a3ef8 0%, transparent 100%);
+    padding: 8px 14px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 0.9rem;
+    width: 88%; /* butonlar biraz daha kısa */
+}
+
+.right ul li:hover {
+    background: linear-gradient(90deg, #b084f9 0%, #7a3ef8 100%);
+    transform: translateX(5px);
+}
+
+/* ============================= */
+/* --- STEP GÖSTERGELERİ (GÜNCELLENDİ) --- */
+/* ============================= */
+
+.steps {
+    position: fixed;
+    right: 100px; /* daha sola yaklaştı (önceden 25px idi) */
+    top: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 75px; /* aralık artırıldı (önceden 14px) */
+}
+
+.step {
+    width: 48px;  /* daha büyük (önceden 38px) */
+    height: 48px; /* daha büyük (önceden 38px) */
+    background: linear-gradient(135deg, #7a3ef8, #b084f9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem; /* yazı boyutu büyütüldü */
+    opacity: 0.5;
+    transition: 0.3s ease;
+}
+
+.step.active {
+    opacity: 1;
+    box-shadow: 0 0 18px #b084f9;
+    transform: scale(1.07);
+}
+
+/* ============================= */
+/* --- NAVİGASYON OKLARI --- */
+/* ============================= */
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 22px;
+    width: 88vw;
+    max-width: 1180px;
+    margin-left: 60px;
+    padding-right: 60px; /* ileri oku biraz sola aldı */
+}
+
+.nav-buttons button {
+    background: linear-gradient(135deg, #7a3ef8, #b084f9);
+    border: none;
+    color: white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.nav-buttons button:hover {
+    box-shadow: 0 0 12px #b084f9;
+    transform: scale(1.1);
+}
+
+/* ============================= */
+/* --- MOBİL UYUMLU GÖRÜNÜM --- */
+/* ============================= */
+
+@media (max-width: 1000px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .content-box {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .right {
+        padding-left: 0;
+        margin-top: 15px;
+    }
+
+    .steps {
+        right: 10px;
+    }
+
+    .right ul {
+        flex: none; /* mobilde içeriğe göre yükseklik */
+    }
 }

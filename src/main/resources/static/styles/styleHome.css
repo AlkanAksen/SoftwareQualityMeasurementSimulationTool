@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+body {
+    margin: 0;
+    height: 100vh;
+    background-color: #000;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: left;
+}
+
+h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+h1 span {
+    color: #b084f9; /* mor tonu */
+}
+
+.iso {
+    font-size: 1rem;
+    color: #dcdcdc;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    letter-spacing: 0.5px;
+}
+
+.start-btn {
+    background: linear-gradient(90deg, #000000 0%, #7a3ef8 100%);
+    color: white;
+    border: 1px solid #7a3ef8;
+    border-radius: 50px;
+    padding: 15px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    background: linear-gradient(90deg, #7a3ef8 0%, #b084f9 100%);
+    transform: scale(1.05);
+}

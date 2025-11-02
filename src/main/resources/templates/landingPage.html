@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Software Quality Measurement Simulation Tool</title>
 
-    <link rel="stylesheet" th:href="@{/styles/style.css}" />
+    <link rel="stylesheet" th:href="@{/styles/styleHome.css}" />
 </head>
 <body>
 <div class="container">
     <h1>Software Quality<br/>Measurement<br/>Simulation <span>Tool</span></h1>
     <p class="iso">ISO 15939</p>
-    <button class="start-btn">START PROCESS</button>
+
+    <!-- Buton tıklanınca /step1'e yönlendirir -->
+    <button class="start-btn"
+            th:onclick="|window.location.href='@{/step1}'|">
+        START PROCESS
+    </button>
 </div>
 </body>
 </html>
