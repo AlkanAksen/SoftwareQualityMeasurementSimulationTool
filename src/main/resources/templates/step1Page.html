@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software Quality Measurement Simulation Tool</title>
+  <link rel="stylesheet" th:href="@{/styles/style.css}" />
+</head>
+<body>
+<div class="container">
+  <h1><span>Step 1:</span> Define Quality Dimensions</h1>
+  <p class="iso">Select the ISO 25010 quality characteristics you want to measure, or choose a predefined case study.</p>
+
+    <div class="left">
+      <div class="card">
+        <div class="icon"></div>
+        <p>Brand strategy</p>
+      </div>
+      <div class="card">
+        <div class="icon"></div>
+        <p>Digital marketing</p>
+      </div>
+      <div class="card">
+        <div class="icon"></div>
+        <p>Content development</p>
+      </div>
+      <div class="card">
+        <div class="icon"></div>
+        <p>Graphic design</p>
+      </div>
+    </div>
+
+    <div class="right">
+      <h3>Or Select Dimensions Manually</h3>
+      <ul id="dimension-list">
+        <li class="active">Functional Suitability</li>
+        <li class="active">Performance Efficiency</li>
+        <li>Reliability</li>
+        <li>Usability</li>
+        <li>Security</li>
+        <li>Maintainability</li>
+        <li>Portability</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="prev">◄</button>
+    <button class="next" id="next-button">►</button>
+  </div>
+</div>
+
+<div class="steps">
+  <div class="step active">1</div>
+  <div class="step">2</div>
+  <div class="step">3</div>
+  <div class="step">4</div>
+</div>
+
+<script>
+  // Sağdaki listede seçili olma ve çıkma
+  document.querySelectorAll('#dimension-list li').forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active'); // Eğer aktifse çıkar, değilse ekle
+    });
+  });
+
+  // Sağ ok butonuna tıklanıldığında seçili öğeleri döndür
+  document.getElementById('next-button').addEventListener('click', () => {
+    const selectedItems = [];
+    document.querySelectorAll('#dimension-list li.active').forEach(item => {
+      selectedItems.push(item.textContent.trim()); // Seçili öğeleri al
+    });
+    alert('Selected dimensions: ' + selectedItems.join(', ')); // Burada seçili öğeleri yazdırıyoruz
+  });
+</script>
+
+</body>
+</html>
