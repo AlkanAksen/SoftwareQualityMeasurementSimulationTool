@@ -125,13 +125,13 @@ h1 span {
 
 .right ul li {
     background: linear-gradient(90deg, #7a3ef8 0%, transparent 100%);
-    padding: 8px 14px;
+    padding: 14px 20px;
     border-radius: 20px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     cursor: pointer;
     transition: 0.3s ease;
     font-size: 0.9rem;
-    width: 88%; /* butonlar biraz daha kısa */
+    width: 80%; /* butonlar biraz daha kısa */
 }
 
 .right ul li:hover {
